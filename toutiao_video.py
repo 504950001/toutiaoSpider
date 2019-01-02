@@ -141,7 +141,7 @@ class Video(object):
             }
 
             try:
-                url = 'http://dev.api.juejinchain.cn/index/spider/video'
+                url = 'http://xxx/xxx/spider/video'
                 requests.post(url, data=items)
                 print('comment ok!!!!')
             except Exception as e:
@@ -174,7 +174,6 @@ class Video(object):
         comment_url = 'http://is-hl.snssdk.com/article/v4/tab_comments/?' + urlencode(param_data)
         headers = {
             'User-Agent': UA
-            #'User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 6.0.1; SM-A8000 Build/MMB29M) NewsArticle/7.0.3 cronet/TTNetVersion:a729d5c3',
         }
         time.sleep(random.randint(1, 2) / 16)
         try:
