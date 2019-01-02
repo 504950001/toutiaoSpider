@@ -18,7 +18,7 @@ sys.setrecursionlimit(100000)
 
 class Video(object):
     def __init__(self):
-        self.redis_cli = redis.Redis(host='192.168.0.21', port=6379, db=1, password='123456',charset='utf8', decode_responses=True)
+        self.redis_cli = redis.Redis(host='secret', port=6379, db=1, password='secret',charset='utf8', decode_responses=True)
         self.count = 1
         self.behot_time = 1
 
