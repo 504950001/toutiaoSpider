@@ -17,7 +17,7 @@ import sys  # 设置递归深度
 sys.setrecursionlimit(100000)
 
 '''
-今日头条视频频道抓取：推荐、影视、游戏、音乐、社会、综艺等
+今日头条视频频道抓取：推荐、影视、游戏、音乐、社会、综艺、体育等
 '''
 
 class Video(object):
