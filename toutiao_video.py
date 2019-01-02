@@ -47,7 +47,6 @@ class Video(object):
         try:
             response = requests.get(url,headers=headers,timeout=3,verify=False)
             data = response.json()['data']
-            time.sleep(random.randint(1, 2) / 4)
             self.parse_video(category_ch,category_en,data)
         except Exception as e:
             print('something is wrong!',e)
