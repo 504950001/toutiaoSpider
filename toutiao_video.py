@@ -16,6 +16,10 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 import sys  # 设置递归深度
 sys.setrecursionlimit(100000)
 
+'''
+今日头条视频频道抓取：推荐、影视、游戏、音乐、社会、综艺等
+'''
+
 class Video(object):
     def __init__(self):
         self.redis_cli = redis.Redis(host='secret', port=6379, db=1, password='secret',charset='utf8', decode_responses=True)
