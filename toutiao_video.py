@@ -165,8 +165,7 @@ class Video(object):
             now = int(time.time())
             data = self.redis_cli.lpop('spider_toutiao_video')
             data = eval(data)
-            print(data)
-            #time.sleep(10)
+            
             category_ch = data['category_ch']
             category_en = data['category_en']
             next_time = data['next_time']
