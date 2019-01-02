@@ -109,14 +109,9 @@ class Video(object):
             # 当前请求Unix时间戳
             mt = int(time.time())
             # API签名字符串
-            para = 'b#28ac3c1abc' + 'juejinchain.com' + str(mt)
+            para = 'xxxx' + 'xxx.com' + str(mt)
             sign = hashlib.md5(para.encode(encoding='UTF-8')).hexdigest()
-
-            print('url: ',url)
-            print('title: ',title)
-            print('video_id: ',video_id)
-            print('comment_count: ',comment_count)
-
+            
             items = {
                 'mt': mt,
                 'sign': sign,
