@@ -165,7 +165,6 @@ class Video(object):
             category_en = data['category_en']
             next_time = data['next_time']
             base_time = now - next_time
-            print(next_time)
 
             try:
                 self.get_toutiao_video(category_ch,category_en)
