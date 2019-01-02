@@ -60,7 +60,6 @@ class Video(object):
                 continue
             try:
                 label = content['label']
-                print('广告内容！！！',label)
                 continue
             except:
                 pass
