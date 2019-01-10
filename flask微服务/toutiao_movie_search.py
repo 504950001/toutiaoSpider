@@ -92,7 +92,6 @@ class Movie(object):
             comment_count = data['comment_count']
             #发布时间(Unix时间戳)
             publish_time = data['publish_time']
-
             content_info = self.get_content(item_id)
             #文章内容
             content = content_info['content']
