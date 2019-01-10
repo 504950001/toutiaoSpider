@@ -6,7 +6,7 @@ def test4():
     data = {
         'keyword': '盗梦空间'
     }
-    url = 'http://xxx:6666/index/spider/toutiao/search/'
+    url = 'http://xxx:xx/index/'
     body = requests.post(url,data=data)
     print(body.content.decode())
 
