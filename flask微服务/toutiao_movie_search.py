@@ -13,6 +13,10 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 #禁用安全请求警告
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
+'''
+利用头条搜索接口爬取与搜索关键字相关的文章内容
+'''
+
 class Movie(object):
     def __init__(self):
         self.offset = 0
@@ -43,7 +47,6 @@ class Movie(object):
         try:
             url = 'https://www.toutiao.com/search_content/?' + urlencode(param_data)
             response = requests.get(url,headers=headers,timeout=3,verify=False).json()
-            time.sleep(1)
             data = response['data']
             self.parse_page(data)
         except Exception as e:
