@@ -101,19 +101,6 @@ class Movie(object):
             #文章大图
             large_img_url = content_info['large_img_url']
 
-            '''
-            print('url: ', url)
-            print('title: ', title)
-            print('abstract: ', abstract)
-            print('author: ', author)
-            print('read_count: ', read_count)
-            print('comment_count: ', comment_count)
-            print('publish_time: ', publish_time)
-            print('img_url: ', img_url)
-            print('large_img_url: ', large_img_url)
-            print('content: ',content)
-
-
             if comment_count > 0:
                 offset = 0
                 group_id = item_id
