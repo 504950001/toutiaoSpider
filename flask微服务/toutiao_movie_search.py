@@ -75,7 +75,7 @@ class Movie(object):
             # 当前请求Unix时间戳
             mt = int(time.time())
             # API签名字符串
-            para = 'b#28ac3c1abc' + 'juejinchain.com' + str(mt)
+            para = 'ffsfjls' + 'xxx' + str(mt)
             sign = hashlib.md5(para.encode(encoding='UTF-8')).hexdigest()
             #文章URL
             item_id = data['item_id']
@@ -105,7 +105,6 @@ class Movie(object):
                 offset = 0
                 group_id = item_id
                 self.get_comment(item_id, group_id, offset)
-            '''
 
     def get_content(self, cid):
         url = "http://a6.pstatp.com/article/content/lite/14/1/{}/{}/1/".format(cid, cid)
