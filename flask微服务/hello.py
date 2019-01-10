@@ -10,7 +10,7 @@ from toutiao_movie_search_test import *
 
 app = Flask(__name__)
 
-@app.route('/index/spider/toutiao/search/', methods=['GET', 'POST'])
+@app.route('/index/', methods=['GET', 'POST'])
 def spider():
     if request.method == 'POST':
         keyword = request.values.get('keyword')
