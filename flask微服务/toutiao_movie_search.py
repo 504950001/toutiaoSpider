@@ -116,15 +116,12 @@ class Movie(object):
             response = requests.get(url=url, headers=headers)
             resp = response.json()['data']
             con = resp['content']
-            #print('con+++++++++++++++++',con)
-            time.sleep(0.1)
             if con == '该内容已删除':
                 content = '[]'
             else:
                 r = re.sub(r'zip_src_path=".*?"', '', con)
                 soup = BeautifulSoup(r, 'lxml')
                 content = str(soup.select("article")[0])
-                print('content=================',content)
         except:
             content = '[]'
 
