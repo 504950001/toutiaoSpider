@@ -110,9 +110,6 @@ class Toutiao(object):
         except Exception as e:
             if self.count < 2:
                 self.count += 1
-                print(self.count)
-                print('====================',e)
-                #移除IP
                 self.redis_cli.srem("IP", ip)
                 self.get_page_list(uid=uid, mid=mid, max_behot_time=max_behot_time, channel_id=channel_id)
                 time.sleep(random.randint(1, 2) / 4)
