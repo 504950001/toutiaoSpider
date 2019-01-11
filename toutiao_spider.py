@@ -26,7 +26,6 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 class Toutiao(object):
     def __init__(self):
-        self.url = 'https://is.snssdk.com/pgc/ma/?article_limit_enable=1&max_behot_time={}&user_id={}&media_id={}&as={}&cp={}&current_user_id=0&from_page=detail_article&is_blocked=0&is_following=0&is_default_tab=1&current_type=all&version_code=6.8.0&page_type=1&count=20&output=json&is_json=1&from=user_profile_app&version=2'
         self.redis_cli = redis.Redis(host='xxx', port=6379, db=1, password='xxx',charset='utf8', decode_responses=True)
         self.n = 0
         self.start_time = int(time.time())
@@ -77,9 +76,6 @@ class Toutiao(object):
             'cp': CP,
         }
 
-        #本次更新数据的时间戳，也就是下次更新停止的时间戳。
-        self.next_over_time = max_behot_time
-
         headers = {
             'authority': 'www.toutiao.com',
             'method': 'GET',
@@ -94,7 +90,6 @@ class Toutiao(object):
             #'user-agent': self.UserAgent.random,
         }
         start_url = 'https://www.toutiao.com/pgc/ma/?' + urlencode(param_data)
-        print('请求地址：', start_url)
 
         #代理池获取ip
         ip = self.redis_cli.srandmember('IP') #代理池获取ip
