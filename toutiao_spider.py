@@ -253,7 +253,6 @@ class Toutiao(object):
                 content = str(soup.select("article")[0])
         except:
             content = '[]'
-        #print(content)
 
         return content
 
@@ -286,7 +285,7 @@ class Toutiao(object):
             except:
                 continue
 
-            if stop_time > 1544835600:  # 启动爬虫的前一秒(每次启动时需要手动输入）
+            if stop_time > 1544835600:  #启动爬虫的前一秒(每次启动时需要手动输入）
                 flag = 0
 
 if __name__ == "__main__":
