@@ -23,7 +23,7 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 class Toutiao(object):
     def __init__(self):
         self.url = 'https://is.snssdk.com/pgc/ma/?article_limit_enable=1&max_behot_time={}&user_id={}&media_id={}&as={}&cp={}&current_user_id=0&from_page=detail_article&is_blocked=0&is_following=0&is_default_tab=1&current_type=all&version_code=6.8.0&page_type=1&count=20&output=json&is_json=1&from=user_profile_app&version=2'
-        self.redis_cli = redis.Redis(host='192.168.0.21', port=6379, db=1, password='123456',charset='utf8', decode_responses=True)
+        self.redis_cli = redis.Redis(host='xxx', port=6379, db=1, password='xxx',charset='utf8', decode_responses=True)
         self.n = 0
         self.start_time = int(time.time())
         self.end_time = 1544612400 #2018-12-12 19:00:00
