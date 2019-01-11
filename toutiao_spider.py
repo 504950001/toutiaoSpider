@@ -93,7 +93,6 @@ class Toutiao(object):
 
         #代理池获取ip
         ip = self.redis_cli.srandmember('IP') #代理池获取ip
-        #ip = self.redis_cli.lpop('IP')
         print('请求IP:', ip)
         if ip == 'None':
             print('ip is None')
