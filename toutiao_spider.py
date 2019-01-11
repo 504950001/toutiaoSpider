@@ -93,10 +93,7 @@ class Toutiao(object):
 
         #代理池获取ip
         ip = self.redis_cli.srandmember('IP') #代理池获取ip
-        print('请求IP:', ip)
         if ip == 'None':
-            print('ip is None')
-            time.sleep(2)
             ip = self.redis_cli.srandmember('IP')
         proxies = {
             "https": "https://{}".format(ip),
