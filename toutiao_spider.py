@@ -195,22 +195,6 @@ class Toutiao(object):
                 print(3333333333)
 
             now1 = data['behot_time']
-            print(now1)
-
-            print('mt: ', mt)
-            print('sign: ', sign)
-            print('mid: ', mid)
-            print('channel_id: ', channel_id)
-            print('url: ', url)
-            print('title: ', title)
-            print('describe: ', describe)
-            print('img_url: ', img_url)
-            print('large_img_url: ', large_img_url)
-            print('author: ', author)
-            print('read_count: ', read_count)
-            print('comment_count: ', comment_count)
-            print('publish_time: ', publish_time)
-            print('content: ', content)
 
             if self.end_time == 0:
                 end_time = 1544612400  #2018-12-12 19:00:00
@@ -239,10 +223,10 @@ class Toutiao(object):
                 }
                 #文章信息存储
                 try:
-                    url = 'http://192.168.0.21:8002/index/spider/toutiao'
+                    url = 'http://xxx/index/spider/toutiao'
                     requests.post(url, data=items)
                 except Exception as e:
-                    url = 'http://192.168.0.21:8002/index/spider/toutiao'
+                    url = 'http://xxx/index/spider/toutiao'
                     requests.post(url, data=items)
                     print('insert wrong!!!!',e)
             else:
