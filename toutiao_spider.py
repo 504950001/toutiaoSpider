@@ -122,12 +122,11 @@ class Toutiao(object):
     #解析号主列表详情页
     def parse_page_list(self, data_list, uid, media_id, channel_id):
         now1 = 0
-
         for data in data_list:
             #当前请求Unix时间戳
             mt = int(time.time())
             #API签名字符串
-            para = 'b#28ac3c1abc' + 'juejinchain.com' + str(mt)
+            para = 'xxx' + 'xxx' + str(mt)
             sign = hashlib.md5(para.encode(encoding='UTF-8')).hexdigest()
             #媒体ID(即用户ID)
             mid = uid
