@@ -227,7 +227,6 @@ class Toutiao(object):
                 pass
 
         else:
-            #self.start_request(uid, media_id, now1,channel_id)
             self.get_page_list(uid, media_id, now1, channel_id)
 
     #文章内容抓取
@@ -261,7 +260,6 @@ class Toutiao(object):
             now = int(time.time())
 
             data = self.redis_cli.rpop('spider_toutiao_user')
-            print(type(data),data)
             data = eval(data) #str转成dict
 
             uid = data['openid']
