@@ -90,8 +90,6 @@ class Toutiao(object):
             #'user-agent': self.UserAgent.random,
         }
         start_url = 'https://www.toutiao.com/pgc/ma/?' + urlencode(param_data)
-
-        #代理池获取ip
         ip = self.redis_cli.srandmember('IP') #代理池获取ip
         if ip == 'None':
             ip = self.redis_cli.srandmember('IP')
@@ -176,7 +174,7 @@ class Toutiao(object):
 
             pattern = re.compile(r'\d+')
             cid = re.findall(pattern, url)[0]
-            print(cid)
+
             try:
                 if data['has_video']:
                     content = '["视频"]'
@@ -186,7 +184,6 @@ class Toutiao(object):
                     content = self.get_content(cid)
             except:
                 content = self.get_content(cid)
-                print(3333333333)
 
             now1 = data['behot_time']
 
