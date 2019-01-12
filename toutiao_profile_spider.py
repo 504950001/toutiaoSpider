@@ -149,10 +149,10 @@ class Toutiao(object):
 
                     #文章信息存储
                     try:
-                        url = 'http://dev.api.juejinchain.cn/index/spider/toutiao'
+                        url = 'http:xxx/spider/toutiao'
                         requests.post(url, data=items)
                         time.sleep(0.001)
-                        jjb_url = 'http://api.juejinchain.com/index/spider/toutiao'
+                        jjb_url = 'http:xxx/spider/toutiao'
                         requests.post(jjb_url, data=items)
                         print('ok!!!!')
                     except Exception as e:
