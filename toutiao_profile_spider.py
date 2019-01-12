@@ -122,10 +122,6 @@ class Toutiao(object):
             if content == '发布了文章':
                 item = self.get_content(item_id)
 
-                print('url: ', url)
-                print('title: ', title)
-                print('=====================华丽的分割线===========================')
-
                 try:
                     content_info = item['content']
                     soup = BeautifulSoup(content_info, 'lxml').get_text().strip()
