@@ -160,7 +160,7 @@ class Toutiao(object):
                     else:
                         save_time = int(time.time())
                         cid = {'item_id': item_id, 'group_id': group_id, 'save_time': save_time}
-                        self.redis_cli.sadd('spider_toutiao_comment_zero_id', str(cid))
+                        self.redis_cli.sadd('spider_toutiao_comment_id', str(cid))
                 else:
                     pass
 
@@ -177,7 +177,6 @@ class Toutiao(object):
             response = requests.get(url=url, headers=headers)
             resp = response.json()['data']
             con = resp['content']
-            time.sleep(0.01)
             if con == '该内容已删除':
                 content = '[]'
             else:
