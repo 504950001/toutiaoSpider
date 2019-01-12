@@ -19,6 +19,10 @@ sys.setrecursionlimit(100000)
 #禁用安全请求警告
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
+'''
+今日头条文章列表内容抓取,通过动态接口抓取
+'''
+
 class Toutiao(object):
     def __init__(self):
         self.n = 1
