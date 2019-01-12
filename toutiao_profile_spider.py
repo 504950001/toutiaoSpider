@@ -249,8 +249,8 @@ class Toutiao(object):
             except:
                 continue
 
-            if base_time < stop_time and space_time < 3600:
-                time.sleep(3600)
+            if base_time < stop_time and space_time < 1800:
+                time.sleep(1800)
 
 if __name__ == "__main__":
     for i in range(5):
