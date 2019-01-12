@@ -158,9 +158,6 @@ class Toutiao(object):
                     except Exception as e:
                         print('insert wrong!!!!', e)
 
-                    if comment_count > 0:
-                        offset = 0
-                        self.get_comment(item_id,group_id,offset)
                     else:
                         save_time = int(time.time())
                         cid = {'item_id': item_id, 'group_id': group_id, 'save_time': save_time}
