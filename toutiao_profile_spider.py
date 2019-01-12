@@ -25,7 +25,7 @@ class Toutiao(object):
         self.count = 0
         self.end_time = 1
         self.max_cursor = 0
-        self.redis_cli = redis.Redis(host='127.0.0.1', port=6379, db=0, password='123456', charset='utf8', decode_responses=True)
+        self.redis_cli = redis.Redis(host='xxx', port=6379, db=0, password='xxx', charset='utf8', decode_responses=True)
 
         #获取号主列表详情页
     def get_page_list(self, uid, max_cursor, channel_id, mid):
@@ -65,7 +65,7 @@ class Toutiao(object):
             #当前请求Unix时间戳
             mt = int(time.time())
             #API签名字符串
-            para = 'b#28ac3c1abc' + 'juejinchain.com' + str(mt)
+            para = 'xxx' + 'xxx' + str(mt)
             sign = hashlib.md5(para.encode(encoding='UTF-8')).hexdigest()
             #媒体ID(即掘金资讯用户ID)
             mid = mid
