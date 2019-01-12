@@ -174,7 +174,6 @@ class Toutiao(object):
 
     def get_content(self, cid):
         url = "http://a6.pstatp.com/article/content/lite/14/1/{}/{}/1/".format(cid, cid)
-        print(url)
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36'
         }
