@@ -18,6 +18,10 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 import sys  #设置递归深度
 sys.setrecursionlimit(100000)
 
+'''
+今日头条本地文章内容抓取
+'''
+
 class Local(object):
     def __init__(self):
         self.redis_cli = redis.Redis(host='xxx', port=6379, db=1, password='xxx', charset='utf8', decode_responses=True)
