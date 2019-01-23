@@ -198,7 +198,7 @@ class Local(object):
             if len(content) > 50:
                 #文章信息存储
                 try:
-                    url = 'http://dev.api.juejinchain.cn/index/spider/toutiao'
+                    url = 'xxx'
                     res = requests.post(url, data=items)
                     print(res.text)
                 except Exception as e:
