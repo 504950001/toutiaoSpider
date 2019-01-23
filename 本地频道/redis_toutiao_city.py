@@ -5,7 +5,7 @@ import redis
 
 def redis_user_insert():
     #加上decode_responses=True，写入的键值对中的value为str类型，不加这个参数写入的则为字节类型
-    redis_cli = redis.Redis(host='192.168.0.21', port=6379, db=1, password='123456',charset='utf8', decode_responses=True)
+    redis_cli = redis.Redis(host='xxx', port=6379, db=1, password='xxx',charset='utf8', decode_responses=True)
     next_time = 1545886800 #2018/12/27 13:0:0
 
     city_info_list = [["安阳","A Y"],["鞍山","A S"],["安庆","A Q"],["安康","A K"],["阿坝","A B"],["阿拉善","A L S"],["阿克苏","A K S"],
