@@ -16,6 +16,10 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 import sys  # 设置递归深度
 sys.setrecursionlimit(100000)
 
+'''
+今日头条本地频道抓取
+'''
+
 class Local(object):
     def __init__(self):
         self.redis_cli = redis.Redis(host='xxx', port=6379, db=1, password='xxx', charset='utf8', decode_responses=True)
@@ -53,7 +57,7 @@ class Local(object):
         except Exception as e:
             print('response is wrong!!!', e)
             self.times += 1
-            if self.times > 50:
+            if self.times > 5:
                 return
             self.get_toutiao_local(user_city)
             
@@ -93,7 +97,7 @@ class Local(object):
             #当前请求Unix时间戳
             mt = int(time.time())
             #API签名字符串
-            para = 'b#28ac3c1abc' + 'juejinchain.com' + str(mt)
+            para = 'xxx' + 'xxx.com' + str(mt)
             sign = hashlib.md5(para.encode(encoding='UTF-8')).hexdigest()
             #媒体ID(即用户ID)
             mid = 0
