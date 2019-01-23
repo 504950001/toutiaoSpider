@@ -127,18 +127,6 @@ class Local(object):
             #城市
             city = user_city
 
-            print('content: ', content)
-            print('describe: ', describe)
-            print('img_url: ', img_url)
-            print('title: ', title)
-            print('url: ', url)
-            print('author: ', author)
-            print('avatar: ', avatar)
-            print('publish_time: ', publish_time)
-            print('read_count: ', read_count)
-            print('comment_count: ', comment_count)
-            print('city: ', city)
-
             self.max_behot_time = article_info['behot_time']
 
         self.count += 1
@@ -146,22 +134,6 @@ class Local(object):
             return
         self.get_toutiao_local(user_city)
 
-    def project_start(self):
-        print('lalalala')
-
-    def run_task(self):
-        #创建后台执行的 schedulers
-        scheduler = BackgroundScheduler()
-        #添加调度任务
-        scheduler.add_job(self.project_start(), 'interval', hours=24, start_date='2019-1-22 9:17:00')
-        #启动调度任务
-        scheduler.start()
-
-        while True:
-            time.sleep(10000)
-            print('ok')
-
-    '''
     def run(self):
         while True:
             data = self.redis_cli.lpop('spider_toutiao_city')
@@ -177,14 +149,9 @@ class Local(object):
             self.count = 1
             self.max_behot_time = int(time.time())
             self.get_toutiao_local(city)
-    '''
 
 if __name__ == "__main__":
-    '''
     for i in range(5):
         l = Local()
         work_thread = Thread(target=l.run)
         work_thread.start()
-    '''
-    l = Local()
-    l.run_task()
