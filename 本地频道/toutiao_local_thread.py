@@ -21,6 +21,7 @@ class Local(object):
         self.redis_cli = redis.Redis(host='xxx', port=6379, db=1, password='xxx', charset='utf8', decode_responses=True)
         self.max_behot_time = int(time.time())
         self.count = 1
+        self.times = 0
 
     def get_toutiao_local(self,user_city):
         city_info = ['北京市', '深圳市', '广州市', '上海市', '杭州市', '南京市', '武汉市', '成都市', '重庆市']
@@ -36,14 +37,30 @@ class Local(object):
             'User-Agent': ua.random
         }
         url = 'http://is.snssdk.com/api/news/feed/v88/?' + urlencode(param_data)
-        ip = '119.101.112.152:9999'
+        ip = self.redis_cli.lpop('5u_ip')
+        if ip == 'None':
+            time.sleep(5)
+            ip = self.redis_cli.lpop('5u_ip')
         proxies = {
             "http": "http://{}".format(ip),
         }
-        response = requests.get(url,headers=headers,proxies=proxies,timeout=5).json()
-        data = response['data']
-        print(data)
-        self.parse_local_article(data,user_city)
+        try:
+            response = requests.get(url, headers=headers, proxies=proxies, timeout=5).json()
+            time.sleep(random.randint(1, 2) / 16)
+            data = response['data']
+            self.parse_local_article(data, user_city)
+            self.redis_cli.lpush('5u_ip', ip)
+        except Exception as e:
+            print('response is wrong!!!', e)
+            self.times += 1
+            if self.times > 50:
+                return
+            self.get_toutiao_local(user_city)
+            
+        self.count += 1
+        if self.count > 20:
+            return
+        self.get_toutiao_local(user_city)
 
     def parse_local_article(self,data_list,user_city):
         for data in data_list:
@@ -156,11 +173,6 @@ class Local(object):
 
             self.max_behot_time = article_info['behot_time']
 
-        self.count += 1
-        if self.count > 20:
-            return
-        self.get_toutiao_local(user_city)
-
     def run(self):
         while True:
             data = self.redis_cli.lpop('spider_toutiao_city')
@@ -174,6 +186,7 @@ class Local(object):
             self.redis_cli.rpush('spider_toutiao_city', str(items))
 
             self.count = 1
+            self.times = 0
             self.max_behot_time = int(time.time())
             try:
                 self.get_toutiao_local(city)
