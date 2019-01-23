@@ -158,19 +158,6 @@ class Local(object):
             #文章内容
             content = self.get_toutiao_article(group_id)
 
-            print('content: ', content)
-            print('describe: ', describe)
-            print('img_url: ', img_url)
-            print('title: ', title)
-            print('url: ', url)
-            print('author: ', author)
-            print('avatar: ', avatar)
-            print('publish_time: ', publish_time)
-            print('read_count: ', read_count)
-            print('comment_count: ', comment_count)
-            print('city: ', city)
-            print('content: ', content)
-
             items = {
                 'mt': mt,
                 'sign': sign,
