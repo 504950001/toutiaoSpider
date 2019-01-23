@@ -17,7 +17,7 @@ import sys  # 设置递归深度
 sys.setrecursionlimit(100000)
 
 '''
-今日头条本地频道抓取
+今日头条本地频道文章抓取
 '''
 
 class Local(object):
