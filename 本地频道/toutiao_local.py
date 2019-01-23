@@ -99,7 +99,7 @@ class Local(object):
                 continue
             else:
                 pass
-            print('style: ', article_url)
+       
             #当前请求Unix时间戳
             mt = int(time.time())
             #API签名字符串
