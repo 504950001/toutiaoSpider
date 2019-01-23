@@ -6,7 +6,6 @@ import json
 import re
 import random
 import hashlib
-import redis
 from fake_useragent import UserAgent
 from bs4 import BeautifulSoup
 from urllib.parse import urlencode
@@ -24,7 +23,6 @@ sys.setrecursionlimit(100000)
 
 class Local(object):
     def __init__(self):
-        self.redis_cli = redis.Redis(host='xxx', port=6379, db=1, password='xxx', charset='utf8', decode_responses=True)
         self.max_behot_time = int(time.time())
         self.count = 1
         self.times = 0
