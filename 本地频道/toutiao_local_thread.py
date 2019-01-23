@@ -126,6 +126,33 @@ class Local(object):
             create_time = int(time.time())
             #城市
             city = user_city
+            
+            items = {
+                'mt': mt,
+                'sign': sign,
+                'mid': mid,
+                'channel_id': channel_id,
+                'url': url,
+                'title': title,
+                'img_url': img_url,
+                'author': author,
+                'author_logo': avatar,
+                'read_count': read_count,
+                'comment_count': comment_count,
+                'publish_time': publish_time,
+                'describe': describe,
+                'content': content,
+                'create_time': create_time
+            }
+
+            if len(content) > 50:
+                #文章信息存储
+                try:
+                    url = 'http://xxx'
+                    res = requests.post(url, data=items)
+                    print(res.text)
+                except Exception as e:
+                    print('insert wrong!!!!', e)
 
             self.max_behot_time = article_info['behot_time']
 
@@ -148,7 +175,11 @@ class Local(object):
 
             self.count = 1
             self.max_behot_time = int(time.time())
-            self.get_toutiao_local(city)
+            try:
+                self.get_toutiao_local(city)
+            except Exception as e:
+                print('get_toutiao_local is wrong!!!', e)
+                continue
 
 if __name__ == "__main__":
     for i in range(5):
