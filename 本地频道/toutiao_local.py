@@ -51,12 +51,6 @@ class Local(object):
         }
         url = 'http://is.snssdk.com/api/news/feed/v88/?' + urlencode(param_data)
         ip = self.get_5u_ip()
-        '''
-        ip = self.redis_cli.lpop('5u_ip')
-        if ip == 'None':
-            time.sleep(5)
-            ip = self.redis_cli.lpop('5u_ip')
-        '''
         proxies = {
             "http": "http://{}".format(ip),
         }
@@ -74,7 +68,7 @@ class Local(object):
             self.get_toutiao_local(user_city)
 
         self.count += 1
-        if self.count > 5:
+        if self.count > 20:
             return
         self.get_toutiao_local(user_city)
 
