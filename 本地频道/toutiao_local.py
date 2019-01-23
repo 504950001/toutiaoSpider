@@ -61,7 +61,6 @@ class Local(object):
             time.sleep(random.randint(1, 2) / 16)
             data = response['data']
             self.parse_local_article(data, user_city)
-            self.redis_cli.lpush('5u_ip', ip)
         except Exception as e:
             print('response is wrong!!!', e)
             self.times += 1
@@ -84,7 +83,6 @@ class Local(object):
                 continue
             try:
                 label = article_info['label']  #判断是否为广告
-                print(label)
                 continue
             except:
                 pass
