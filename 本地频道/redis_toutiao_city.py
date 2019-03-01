@@ -53,16 +53,12 @@ def redis_user_insert():
         item = {}
         item['city'] = city[0]
         item['next_time'] = next_time
-        print(item['city'])
-        print(item['next_time'])
-        print(str(item))
 
         try:
             redis_cli.rpush('spider_toutiao_city', str(item))
             print('1')
         except Exception as e:
             print('2', e)
-
 
 if __name__ == "__main__":
     redis_user_insert()
